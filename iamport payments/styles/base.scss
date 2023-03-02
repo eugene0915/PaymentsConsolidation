@@ -1,0 +1,70 @@
+.wrapper{
+    padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .header{
+   
+    text-align: center;
+    padding: 2rem;
+    padding-top: 0;
+    font-size: 2rem;
+  }
+  .formcontainer{
+    width: 350px;
+    border-radius: 3px;
+  }
+  .field{
+    padding: .5rem;
+    label{
+        padding: 0 11px;
+        width: 9rem;
+        text-align: left;
+        position: relative;
+        font-weight: bold;
+   
+      }
+  }
+  button[type='submit'] {
+    width: 100%;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+  }
+}
+
+.red{
+  color:red;
+}
+
+
+.resultmapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .container{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  padding: 2rem;
+li{
+  display: flex;
+      line-height: 2;
+      span:first-child {
+        width: 8rem;
+        color: #888;
+      }
+}  
+
+}
+}
