@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-blue-400 flex justify-center">
+      <h1 className="text-3xl font-bold text-blue-400 flex justify-center mt-40">
         😀this is iamport payment test page
       </h1>
       <div className="flex justify-center mt-40 gap-10">

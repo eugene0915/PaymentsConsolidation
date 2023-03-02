@@ -69,94 +69,112 @@ const pay = () => {
 
     return (<>
         <div className="wrapper">
-            <div className="header">iamport Payment test (아임포트 결제 테스트)</div>
+            <div className="font-bold text-3xl">📇 iamport Payment test 💳</div>
             <form className="formcontainer" onSubmit={formik.handleSubmit}>
 
-
-                <div className="field">
+                <div className="mt-4">
                     <span>
-                        <label htmlFor="pg">
-                            <span className="red">*</span>
-                            pg corporation <br />(pg사)</label>
-                        <select className="justify-content" name="pg" id="pg" value={formData.pgs} onChange={formik.handleChange}>
-                            {PGS.map((li) => {
-                                return (<option value={li.value} key={li.label}>{li.label}</option>)
-                            })}
-                        </select>
-                        <div>The selected PG at the top, "웹 표준 이니시스" is our main way to payment. </div>
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor="pg">
+                                <span className="red">*</span>
+                                pg corporation</label>
+                            <select className="justify-content outline outline-1 outline-offset-1 rounded-sm" name="pg" id="pg" value={formData.pgs} onChange={formik.handleChange}>
+                                {PGS.map((li) => {
+                                    return (<option value={li.value} key={li.label}>{li.label}</option>)
+                                })}
+                            </select>
+                        </div>
+                        <div className="text-xs text-gray-400">The selected PG at the top, "웹 표준 이니시스" is our main way to payment. </div>
                     </span>
 
                 </div>
-                <div className="field">
+                <div className="mt-4">
                     <span>
-                        <label htmlFor="pay_method">
-                            <span className="red">*</span>
-                            pay method <br />(결제 방법)</label>
-                        <select name="pay_method" id="pay_method" value={formData.pay_method} onChange={formik.handleChange}>
-                            {METHODS_FOR_INICIS.map((li) => {
-                                return (<option value={li.value} key={li.label}>{li.label}</option>)
-                            })}
-                        </select>
-                        <div>The selected payment way at the top, "신용카드(card)" is our main way to payment. </div>
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor="pay_method">
+                                <span className="red">*</span>
+                                pay method <span className="text-xs">(결제 방법)</span></label>
+                            <select className="justify-content outline outline-1 outline-offset-1 rounded-sm" name="pay_method" id="pay_method" value={formData.pay_method} onChange={formik.handleChange}>
+                                {METHODS_FOR_INICIS.map((li) => {
+                                    return (<option value={li.value} key={li.label}>{li.label}</option>)
+                                })}
+                            </select>
+                        </div>
+                        <div className="text-xs text-gray-400">The selected payment way at the top, "신용카드(card)" is our main way to payment. </div>
+                    </span>
+                </div>
+                <div className="mt-4">
+                    <span className="p-float-label">
+                        <div className="mb-2 flex justify-center gap-3">
+                            <label htmlFor='name'>
+                                <span className="red">*</span>
+                                product name <p className="text-xs">(상품명)</p></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="name" name="name" value={formik.values.name} onChange={formik.handleChange}></InputText>
+                        </div>
+                    </span>
+                    <div className="text-xs text-gray-400">when you test, you can type in it any words</div>
+                </div>
 
-                    </span>
-                </div>
-                <div className="field">
+                <div className="mt-4">
                     <span className="p-float-label">
-                        <label htmlFor='name'>
-                            <span className="red">*</span>
-                            product name <br />(상품명)</label>
+                        <div className="mb-2 flex justify-center gap-5">
 
-                        <InputText id="name" name="name" value={formik.values.name} onChange={formik.handleChange}></InputText>
+                            <label htmlFor='amount'>
+                                <span className="red">*</span>
+                                product price <p className="text-xs">(상품가격)</p></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="amount" name="amount" value={formik.values.amount} onChange={formik.handleChange}></InputText>
+                        </div>
                     </span>
-                    <div>when you test, you can type in it any words</div>
+                    <div className="text-xs text-gray-400">for test, product price should be at least 100</div>
+                </div>
 
-                </div>
-                <div className="field">
+                <div className="mt-4">
                     <span className="p-float-label">
-                        <label htmlFor='amount'>
-                            <span className="red">*</span>
-                            product price <br />(상품 가격)</label>
-                        <InputText id="amount" name="amount" value={formik.values.amount} onChange={formik.handleChange}></InputText>
-                    </span>
-                    <div>for test, product price should be at least 100</div>
-                </div>
-                <div className="field">
-                    <span className="p-float-label">
-                        <label htmlFor='buyer_name'>name(이름)</label>
-                        <InputText id="buyer_name" name="buyer_name" value={formik.values.buyer_name} onChange={formik.handleChange}></InputText>
-                    </span>
-                </div>
-                <div className="field">
-                    <span className="p-float-label">
-                        <label htmlFor='buyer_tel'>phone number <br />(전화번호)</label>
-                        <InputText id="buyer_tel" name="buyer_tel" value={formik.values.buyer_tel} onChange={formik.handleChange}></InputText>
-                    </span>
-                </div>
-                <div className="field">
-                    <span className="p-float-label">
-                        <label htmlFor='buyer_email'>email(이메일)</label>
-                        <InputText id="buyer_email" name="buyer_email" value={formik.values.buyer_email} onChange={formik.handleChange}></InputText>
-                    </span>
-                </div>
-                <div className="field">
-                    <span className="p-float-label">
-                        <label htmlFor='buyer_addr'>address(주소)</label>
-                        <InputText id="buyer_addr" name="buyer_addr" value={formik.values.buyer_addr} onChange={formik.handleChange}></InputText>
-                    </span>
-                </div>
-                <div className="field">
-                    <span className="p-float-label">
-                        <label htmlFor='buyer_postalcode'>postal code <br />(우편번호)</label>
-                        <InputText id="buyer_postalcode" name="buyer_postalcode" value={formik.values.buyer_postalcode} onChange={formik.handleChange}></InputText>
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor='buyer_name'>name<span className="text-xs">(이름)</span></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="buyer_name" name="buyer_name" value={formik.values.buyer_name} onChange={formik.handleChange}></InputText>
+                        </div>
                     </span>
                 </div>
 
-                <div>The information next to the <span className="red">*</span> must be written down
-                    <br />
+                <div className="mt-4">
+                    <span className="p-float-label">
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor='buyer_tel'>phone number<p className="text-xs">(전화번호)</p></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="buyer_tel" name="buyer_tel" value={formik.values.buyer_tel} onChange={formik.handleChange}></InputText>
+                        </div>
+                    </span>
                 </div>
 
-                <Button type="submit" label="payment(결제하기)" className="mt-2" />
+                <div className="mt-4">
+                    <span className="p-float-label">
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor='buyer_email'>email<span className="text-xs">(이메일)</span></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="buyer_email" name="buyer_email" value={formik.values.buyer_email} onChange={formik.handleChange}></InputText>
+                        </div>
+                    </span>
+                </div>
+                <div className="mt-4">
+                    <span className="p-float-label">
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor='buyer_addr'>address<span className="text-xs">(주소)</span></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="buyer_addr" name="buyer_addr" value={formik.values.buyer_addr} onChange={formik.handleChange}></InputText>
+                        </div>
+                    </span>
+                </div>
+                <div className="mt-4">
+                    <span className="p-float-label">
+                        <div className="mb-2 flex justify-center gap-5">
+                            <label htmlFor='buyer_postalcode'>postal code <span className="text-xs">(우편번호)</span></label>
+                            <InputText className="justify-content rounded-sm bg-gray-50 border border-gray-300 focus:outline-none text-gray-600" id="buyer_postalcode" name="buyer_postalcode" value={formik.values.buyer_postalcode} onChange={formik.handleChange}></InputText>
+                        </div>
+                    </span>
+                </div>
+
+                <div className="text-xs text-gray-400">The information next to the <span className="red">*</span> must be written down
+                </div>
+
+                <Button className="border border-amber-400 rounded-xl bg-gray-50 text-gray-500 hover:text-gray-600" type="submit" label="payment 결제하기" />
             </form>
         </div>
 
